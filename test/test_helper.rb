@@ -7,7 +7,7 @@ else
   Coveralls.wear!
 end
 
-require 'aliyun/oss'
+require 'aliyun/oss_dup'
 
 require 'minitest/autorun'
 require 'mocha/mini_test'

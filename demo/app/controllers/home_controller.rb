@@ -23,7 +23,7 @@ class HomeController < ApplicationController
 
     service.bucket_objects.create(params[:name], params[:file].read)
     redirect_to root_path, notice: 'Upload Success'
-  rescue Aliyun::Oss::RequestError => e
+  rescue Aliyun::OssDup::RequestError => e
     Rails.logger.error(e.inspect)
     redirect_to root_path, alert: e.message
   end
@@ -44,9 +44,9 @@ class HomeController < ApplicationController
       ]
     }
 
-    @policy = Aliyun::Oss::Authorization.get_base64_policy(policy_hash)
-    @signature = Aliyun::Oss::Authorization.get_policy_signature(secret_key, policy_hash)
-    @bucket_endpoint = Aliyun::Oss::Utils.get_endpoint(bucket, host)
+    @policy = Aliyun::OssDup::Authorization.get_base64_policy(policy_hash)
+    @signature = Aliyun::OssDup::Authorization.get_policy_signature(secret_key, policy_hash)
+    @bucket_endpoint = Aliyun::OssDup::Utils.get_endpoint(bucket, host)
   end
 
   def post_return

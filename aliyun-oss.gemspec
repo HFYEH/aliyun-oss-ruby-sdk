@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'aliyun/oss/version'
+require 'aliyun/oss_dup/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'aliyun-oss-sdk'
-  spec.version       = Aliyun::Oss::VERSION
+  spec.version       = Aliyun::OssDup::VERSION
   spec.authors       = ['Newell Zhu']
   spec.email         = ['zlx.star@gmail.com']
 
